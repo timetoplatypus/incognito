@@ -57,7 +57,7 @@ void output_string(char *string, ...)
 	char temp[2048];
 
 	va_start(ap, string);
-	if (_vsnprintf(temp, sizeof(temp), string, ap) == -1)
+	if (vsnprintf(temp, sizeof(temp), string, ap) == -1)
 		temp[sizeof(temp)-1] = '\0';
 
 	if (hOUTPUT == stdout)
@@ -79,7 +79,7 @@ void output_status_string(char *string, ...)
 		return;
 
 	va_start(ap, string);
-	if (_vsnprintf(temp, sizeof(temp), string, ap) == -1)
+	if (vsnprintf(temp, sizeof(temp), string, ap) == -1)
 		temp[sizeof(temp)-1] = '\0';
 
 	if (hOUTPUT == stdout)
@@ -109,7 +109,7 @@ void output_grepable_string(char *string, ...)
 	char temp[2048];
 
 	va_start(ap, string);
-	if (_vsnprintf(temp, sizeof(temp), string, ap) == -1)
+	if (vsnprintf(temp, sizeof(temp), string, ap) == -1)
 		temp[sizeof(temp)-1] = '\0';
 
 	if (hOUTPUT == stdout)
@@ -140,7 +140,7 @@ BOOL read_counted_input(char *string, int string_size, DWORD *dwRead)
 
 	if (hINPUT == stdin)
 	{
-		ret_value = gets(string);
+		ret_value = gets_s(string, string_size);
 		*dwRead = strlen(string)+1;
 		return (BOOL)ret_value;
 	}

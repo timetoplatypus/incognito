@@ -1,5 +1,5 @@
 # Shared libraries to link against
-LIBS = kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib psapi.lib mpr.lib netapi32.lib Advapi32.lib
+LIBS = kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib psapi.lib mpr.lib netapi32.lib Advapi32.lib legacy_stdio_definitions.lib
 
 # Source files shared between incognito.exe and incognito_service.exe
 SHARED_SOURCES = child_process.c handle_arguments.c hash_stealer.c list_tokens.c process_execution.c remote_connection.c token_info.c user_management.c XGetopt.c
